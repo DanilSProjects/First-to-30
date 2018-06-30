@@ -14,10 +14,12 @@ class ClickerViewController: UIViewController {
     var counter = 0
     var timer: Timer!
     var time = 0.0
+    var timeCompleted: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(update), userInfo: nil, repeats: true)
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -37,6 +39,7 @@ class ClickerViewController: UIViewController {
         } else if counter == 30 {
             print ("We're done here, boys")
             print (time)
+            timeCompleted = DateFormatter.localizedString(from: NSDate() as Date, dateStyle: DateFormatter.Style.medium, timeStyle: DateFormatter.Style.short)
             performSegue(withIdentifier: "exitClicker", sender: self)
         }
     }

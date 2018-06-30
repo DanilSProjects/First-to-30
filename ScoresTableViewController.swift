@@ -11,6 +11,8 @@ import UIKit
 class ScoresTableViewController: UITableViewController {
     
     var scores: [Float] = []
+    var timeStamps: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,12 +41,17 @@ class ScoresTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "scoreCell", for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "scoreCell", for: indexPath) as! ScoreTableViewCell
         if let label = cell.textLabel {
             let currentScore = scores[indexPath.row]
             label.text = String(currentScore)
         }
+        
+        if let timeLabel = cell.timeStampLabel {
+            let currentTimeStamp = timeStamps[indexPath.row]
+            timeLabel.text = currentTimeStamp
+        }
+        
         return cell
     }
     
@@ -60,6 +67,7 @@ class ScoresTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            timeStamps.remove(at: indexPath.row)
             scores.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadData()
@@ -96,7 +104,8 @@ class ScoresTableViewController: UITableViewController {
     @IBAction func unwindToScoreTable (segue: UIStoryboardSegue) {
         if segue.identifier == "exitClicker" {
             let source = segue.source as! ClickerViewController
-            scores.append(Float(source.time))
+            scores.insert((Float(source.time)), at: 0)
+            timeStamps.insert(source.timeCompleted, at: 0)
             tableView.reloadData()
         }
     }
