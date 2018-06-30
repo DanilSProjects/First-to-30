@@ -1,5 +1,5 @@
 //
-//  ScoresTableViewController.swift
+//  SettingsTableViewController.swift
 //  First to 30
 //
 //  Created by Daniel on 30/6/18.
@@ -8,20 +8,17 @@
 
 import UIKit
 
-class ScoresTableViewController: UITableViewController {
-    
-    var scores: [Float] = []
-    var timeStamps: [String] = []
-    var noOfTapsRequired = 30
-    
+class SettingsTableViewController: UITableViewController {
+    @IBOutlet var numberLabel: UILabel!
+    var noofTapsRequired = 30
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-/*
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
- */
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,25 +35,22 @@ class ScoresTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return scores.count
+        return 2
     }
 
-    
+    @IBAction func stepper(_ sender: UIStepper) {
+        noofTapsRequired = Int(sender.value)
+        numberLabel.text = String(Int(sender.value))
+    }
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "scoreCell", for: indexPath) as! ScoreTableViewCell
-        if let label = cell.textLabel {
-            let currentScore = scores[indexPath.row]
-            label.text = String(currentScore)
-        }
-        
-        if let timeLabel = cell.timeStampLabel {
-            let currentTimeStamp = timeStamps[indexPath.row]
-            timeLabel.text = currentTimeStamp
-        }
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
         return cell
     }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -66,17 +60,17 @@ class ScoresTableViewController: UITableViewController {
     }
     */
 
-    
+    /*
+    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            timeStamps.remove(at: indexPath.row)
-            scores.remove(at: indexPath.row)
+            // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.reloadData()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
+    */
 
     /*
     // Override to support rearranging the table view.
@@ -98,27 +92,30 @@ class ScoresTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "playClicker" {
-            let destination = segue.destination as! ClickerViewController
-            destination.numOfTapsRequired = noOfTapsRequired
-        }
-    }
-    
-    
-    @IBAction func unwindToScoreTable (segue: UIStoryboardSegue) {
-        if segue.identifier == "exitClicker" {
-            let source = segue.source as! ClickerViewController
-            scores.insert((Float(source.time)), at: 0)
-            timeStamps.insert(source.timeCompleted, at: 0)
-            tableView.reloadData()
-        }
-        
         if segue.identifier == "saveUnwind" {
-            scores.removeAll()
-            timeStamps.removeAll()
-            tableView.reloadData()
+            let destination = segue.destination as! ScoresTableViewController
+            destination.noOfTapsRequired = noofTapsRequired
+        }
+    }
+    func goUnwind (alert: UIAlertAction) {
+        performSegue(withIdentifier: "saveUnwind", sender: nil)
+    }
+    @IBAction func saveTapped(_ sender: Any) {
+        if noofTapsRequired != 30 {
+        let alert = UIAlertController(title: "Are you sure you want to save?", message: "Saving will wipe all your previous data.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Proceed", comment: "Default action"), style: .default, handler: goUnwind
+        ))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Default action"), style: .default, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+        }))
+        self.present(alert, animated: true, completion: nil)
+        } else if noofTapsRequired == 30 {
+            navigationController?.popViewController(animated: true)
+            dismiss(animated: true, completion: nil)
         }
         
     }
-
+    
+    
+    
 }

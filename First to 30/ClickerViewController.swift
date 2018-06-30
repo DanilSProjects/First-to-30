@@ -10,16 +10,18 @@ import UIKit
 
 class ClickerViewController: UIViewController {
 
+    @IBOutlet var hintLabel: UILabel!
     @IBOutlet var counterLabel: UILabel!
     var counter = 0
     var timer: Timer!
     var time = 0.0
     var timeCompleted: String = ""
-
+    var numOfTapsRequired = 30
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(update), userInfo: nil, repeats: true)
-        
+        hintLabel.text = "Number of taps needed: \(numOfTapsRequired)"
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -33,10 +35,10 @@ class ClickerViewController: UIViewController {
     }
 
     @IBAction func screenTapped(_ sender: Any) {
-        if counter < 30 {
+        if counter < numOfTapsRequired {
         counter += 1
         counterLabel.text = "\(counter)"
-        } else if counter == 30 {
+        } else if counter == numOfTapsRequired {
             print ("We're done here, boys")
             print (time)
             timeCompleted = DateFormatter.localizedString(from: NSDate() as Date, dateStyle: DateFormatter.Style.medium, timeStyle: DateFormatter.Style.short)
