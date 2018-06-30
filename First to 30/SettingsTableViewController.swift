@@ -7,13 +7,17 @@
 //
 
 import UIKit
-
+var defaults = UserDefaults.standard
 class SettingsTableViewController: UITableViewController {
     @IBOutlet var numberLabel: UILabel!
+    @IBOutlet var tapsStepper: UIStepper!
+    var retrievedTaps = defaults.object(forKey: "tapsValue") as? Int ?? 0
     var noofTapsRequired = 30
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        noofTapsRequired = retrievedTaps
+        numberLabel.text = String(retrievedTaps)
+        tapsStepper.value = Double(retrievedTaps)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -40,7 +44,9 @@ class SettingsTableViewController: UITableViewController {
 
     @IBAction func stepper(_ sender: UIStepper) {
         noofTapsRequired = Int(sender.value)
-        numberLabel.text = String(Int(sender.value))
+        numberLabel.text = String(noofTapsRequired)
+        defaults.set(noofTapsRequired, forKey: "tapsValue")
+        
     }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -104,7 +110,7 @@ class SettingsTableViewController: UITableViewController {
     }
     //When the save button is tapped (alert)
     @IBAction func saveTapped(_ sender: Any) {
-        if noofTapsRequired != 30 {
+        if retrievedTaps != noofTapsRequired {
         let alert = UIAlertController(title: "Are you sure you want to save?", message: "Saving will wipe all your previous data.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("Proceed", comment: "Default action"), style: .default, handler: goUnwind
         ))
@@ -112,7 +118,7 @@ class SettingsTableViewController: UITableViewController {
                 NSLog("The \"OK\" alert occured.")
         }))
         self.present(alert, animated: true, completion: nil)
-        } else if noofTapsRequired == 30 {
+        } else if retrievedTaps == noofTapsRequired {
             navigationController?.popViewController(animated: true)
             dismiss(animated: true, completion: nil)
         }

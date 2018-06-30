@@ -39,8 +39,6 @@ class ClickerViewController: UIViewController {
         counter += 1
         counterLabel.text = "\(counter)"
         } else if counter == numOfTapsRequired {
-            print ("We're done here, boys")
-            print (time)
             timeCompleted = DateFormatter.localizedString(from: NSDate() as Date, dateStyle: DateFormatter.Style.medium, timeStyle: DateFormatter.Style.short)
             performSegue(withIdentifier: "exitClicker", sender: self)
         }

@@ -63,7 +63,7 @@
             </objects>
             <point key="canvasLocation" x="242.40000000000001" y="134.48275862068968"/>
         </scene>
-        <!--Settings Table View Controller-->
+        <!--Settings-->
         <scene sceneID="Kbk-aq-eH0">
             <objects>
                 <tableViewController id="i0n-nJ-zeo" customClass="SettingsTableViewController" customModule="First_to_30" customModuleProvider="target" sceneMemberID="viewController">
@@ -147,7 +147,7 @@
                             <outlet property="delegate" destination="i0n-nJ-zeo" id="sIK-3W-cwt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Ln5-tF-qmi">
+                    <navigationItem key="navigationItem" title="Settings" id="Ln5-tF-qmi">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Vbt-ng-0PE">
                             <connections>
                                 <action selector="saveTapped:" destination="i0n-nJ-zeo" id="klO-CM-t2E"/>
@@ -156,6 +156,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="numberLabel" destination="hNu-WW-T4H" id="hXE-Mv-6Us"/>
+                        <outlet property="tapsStepper" destination="CAC-1U-twC" id="Iv9-op-ulm"/>
                         <segue destination="jeC-0s-aZB" kind="unwind" identifier="saveUnwind" unwindAction="unwindToScoreTableWithSegue:" id="tkb-Qa-1cF"/>
                     </connections>
                 </tableViewController>
@@ -164,7 +165,7 @@
             </objects>
             <point key="canvasLocation" x="240.80000000000001" y="871.21439280359823"/>
         </scene>
-        <!--View Controller-->
+        <!--App Guide-->
         <scene sceneID="aWs-Sb-5Np">
             <objects>
                 <viewController id="NIc-fj-gtG" sceneMemberID="viewController">
@@ -240,6 +241,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kb0-z6-CMd"/>
                     </view>
+                    <navigationItem key="navigationItem" title="App Guide" id="gFO-Yg-3ne"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fBO-S0-kGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -259,8 +261,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of taps needed: 30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWW-c3-oNq">
-                                <rect key="frame" x="51" y="141" width="273" height="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of taps needed: 40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWW-c3-oNq">
+                                <rect key="frame" x="51" y="141" width="308" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
