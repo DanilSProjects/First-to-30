@@ -37,7 +37,7 @@ class ClickerViewController: UIViewController {
         } else if counter == 30 {
             print ("We're done here, boys")
             print (time)
-            dismiss(animated: true, completion: nil)
+            performSegue(withIdentifier: "exitClicker", sender: self)
         }
     }
     

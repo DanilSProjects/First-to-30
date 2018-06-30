@@ -94,5 +94,13 @@ class ScoresTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func unwindToScoreTable (segue: UIStoryboardSegue) {
+        if segue.identifier == "exitClicker" {
+            let source = segue.source as! ClickerViewController
+            scores.append(Float(source.time))
+            tableView.reloadData()
+        }
+    }
 
 }

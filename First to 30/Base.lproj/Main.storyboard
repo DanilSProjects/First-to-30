@@ -75,9 +75,11 @@
                     </view>
                     <connections>
                         <outlet property="counterLabel" destination="dkr-8H-F32" id="r1e-GZ-P7a"/>
+                        <segue destination="6su-Hn-wxU" kind="unwind" identifier="exitClicker" unwindAction="unwindToScoreTableWithSegue:" id="tl4-HK-JH2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="6su-Hn-wxU" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="KoV-KK-Xbj">
                     <connections>
                         <action selector="screenTapped:" destination="BYZ-38-t0r" id="0Qa-zp-Bob"/>
