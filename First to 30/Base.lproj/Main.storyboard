@@ -6,11 +6,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Scores Table View Controller-->
+        <!--Scores-->
         <scene sceneID="HqF-rq-k6U">
             <objects>
                 <tableViewController id="9es-Vx-4a8" customClass="ScoresTableViewController" customModule="First_to_30" customModuleProvider="target" sceneMemberID="viewController">
@@ -45,7 +46,7 @@
                             <outlet property="delegate" destination="9es-Vx-4a8" id="Kib-V6-oeG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="3te-mX-cpn">
+                    <navigationItem key="navigationItem" title="Scores" id="3te-mX-cpn">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="66g-kg-gwi">
                             <connections>
                                 <segue destination="i0n-nJ-zeo" kind="show" id="o2H-OU-xql"/>
@@ -76,18 +77,35 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="SOo-Q7-jrY">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SOo-Q7-jrY" id="q6J-fR-q65">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SOo-Q7-jrY" id="q6J-fR-q65">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="App Guide" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pp-2Y-Pbp">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Guide" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pp-2Y-Pbp">
                                                     <rect key="frame" x="16" y="11" width="81" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTQ-86-14x">
+                                                    <rect key="frame" x="0.0" y="-1" width="375" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="yWX-O1-hzn"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <segue destination="NIc-fj-gtG" kind="show" id="YR7-Ys-Hyk"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="YTQ-86-14x" firstAttribute="leading" secondItem="q6J-fR-q65" secondAttribute="leading" id="Fry-7f-onW"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="2pp-2Y-Pbp" secondAttribute="bottom" constant="1" id="YGh-u1-R0M"/>
+                                                <constraint firstItem="2pp-2Y-Pbp" firstAttribute="top" secondItem="q6J-fR-q65" secondAttribute="topMargin" id="Zee-io-au1"/>
+                                                <constraint firstAttribute="trailing" secondItem="YTQ-86-14x" secondAttribute="trailing" id="doF-jD-xSt"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="2pp-2Y-Pbp" secondAttribute="trailing" id="gdr-1R-JJ2"/>
+                                                <constraint firstItem="2pp-2Y-Pbp" firstAttribute="leading" secondItem="q6J-fR-q65" secondAttribute="leadingMargin" id="uAU-nD-TYh"/>
+                                                <constraint firstItem="YTQ-86-14x" firstAttribute="centerY" secondItem="2pp-2Y-Pbp" secondAttribute="centerY" id="vjf-Ca-qn9"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="1Vc-It-8ky">
@@ -145,6 +163,87 @@
                 <exit id="jeC-0s-aZB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="240.80000000000001" y="871.21439280359823"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="aWs-Sb-5Np">
+            <objects>
+                <viewController id="NIc-fj-gtG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dco-Xi-wcH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cgp-Vh-gLR">
+                                <rect key="frame" x="16" y="64" width="310" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="Vwg-BF-pCZ"/>
+                                </constraints>
+                                <string key="text">Hello and welcome to First to 30! In case this is your first time playing, we have made this handy guide to the app that will make playing simple and fun!</string>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BmU-hZ-b74">
+                                <rect key="frame" x="16" y="152" width="343" height="165"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="165" id="sQt-ud-xSD"/>
+                                </constraints>
+                                <string key="text">When you first boot up the app, you are greeted with an empty list of scores. This is where your scores will be shown. Scores are based on the amount of time you took to get to the required amount of taps.  Time stamps of the exact time you achieved the score will also be shown. For now, tap on 'play' in the top right corner.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPA-o2-VHP">
+                                <rect key="frame" x="16" y="320" width="343" height="165"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="165" id="RPA-xp-cvD"/>
+                                </constraints>
+                                <string key="text">When you tap on 'play, you will be greeted with a new screen telling you the number of taps needed to proceed. Now, tap on the screen as fast as possible! When you reach the required amount, the app will automatically stop you and take you back to the scores screen to show you the amount of time you took.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations! You are now ready to play First to 30! Good luck and happy playing!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AcS-xm-K17">
+                                <rect key="frame" x="16" y="600" width="359" height="46"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4b-Xn-3D6">
+                                <rect key="frame" x="16" y="487" width="343" height="105"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="105" id="i8l-pw-4k7"/>
+                                </constraints>
+                                <string key="text">Although the default number of taps required is 30, you are free to change the number in the settings. If you change the number, however, do be aware that all your scores will be erased.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kb0-z6-CMd" firstAttribute="trailing" secondItem="AcS-xm-K17" secondAttribute="trailing" id="1AC-zd-EzM"/>
+                            <constraint firstItem="AcS-xm-K17" firstAttribute="leading" secondItem="kb0-z6-CMd" secondAttribute="leading" constant="16" id="2yk-bf-DMW"/>
+                            <constraint firstItem="kb0-z6-CMd" firstAttribute="trailing" secondItem="Cgp-Vh-gLR" secondAttribute="trailing" constant="49" id="CxB-MB-JNP"/>
+                            <constraint firstItem="kb0-z6-CMd" firstAttribute="trailing" secondItem="IPA-o2-VHP" secondAttribute="trailing" constant="16" id="Ect-1S-UIX"/>
+                            <constraint firstItem="G4b-Xn-3D6" firstAttribute="leading" secondItem="kb0-z6-CMd" secondAttribute="leading" constant="16" id="Nw5-cw-HNi"/>
+                            <constraint firstItem="Cgp-Vh-gLR" firstAttribute="top" secondItem="kb0-z6-CMd" secondAttribute="top" id="VVC-Iv-08w"/>
+                            <constraint firstItem="G4b-Xn-3D6" firstAttribute="top" secondItem="IPA-o2-VHP" secondAttribute="bottom" constant="2" id="XpK-Nu-gF7"/>
+                            <constraint firstItem="BmU-hZ-b74" firstAttribute="top" secondItem="Cgp-Vh-gLR" secondAttribute="bottom" constant="3" id="Z8G-ak-L0g"/>
+                            <constraint firstItem="kb0-z6-CMd" firstAttribute="trailing" secondItem="BmU-hZ-b74" secondAttribute="trailing" constant="16" id="diQ-UT-H2V"/>
+                            <constraint firstItem="kb0-z6-CMd" firstAttribute="bottom" secondItem="AcS-xm-K17" secondAttribute="bottom" constant="21" id="gc4-Nz-Z7h"/>
+                            <constraint firstItem="Cgp-Vh-gLR" firstAttribute="leading" secondItem="kb0-z6-CMd" secondAttribute="leading" constant="16" id="mki-hi-Sjg"/>
+                            <constraint firstItem="kb0-z6-CMd" firstAttribute="trailing" secondItem="G4b-Xn-3D6" secondAttribute="trailing" constant="16" id="pom-NZ-GlK"/>
+                            <constraint firstItem="IPA-o2-VHP" firstAttribute="top" secondItem="BmU-hZ-b74" secondAttribute="bottom" constant="3" id="rmh-Ks-GeY"/>
+                            <constraint firstItem="BmU-hZ-b74" firstAttribute="leading" secondItem="kb0-z6-CMd" secondAttribute="leading" constant="16" id="rz3-Kr-97c"/>
+                            <constraint firstItem="AcS-xm-K17" firstAttribute="top" secondItem="G4b-Xn-3D6" secondAttribute="bottom" constant="8" id="t7z-0q-BvN"/>
+                            <constraint firstItem="IPA-o2-VHP" firstAttribute="leading" secondItem="kb0-z6-CMd" secondAttribute="leading" constant="16" id="zkS-IE-4ES"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kb0-z6-CMd"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fBO-S0-kGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="989.60000000000002" y="871.21439280359823"/>
         </scene>
         <!--Clicker View Controller-->
         <scene sceneID="tne-QT-ifu">

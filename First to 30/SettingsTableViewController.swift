@@ -91,6 +91,8 @@ class SettingsTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+
+    //Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "saveUnwind" {
             let destination = segue.destination as! ScoresTableViewController
@@ -100,6 +102,7 @@ class SettingsTableViewController: UITableViewController {
     func goUnwind (alert: UIAlertAction) {
         performSegue(withIdentifier: "saveUnwind", sender: nil)
     }
+    //When the save button is tapped (alert)
     @IBAction func saveTapped(_ sender: Any) {
         if noofTapsRequired != 30 {
         let alert = UIAlertController(title: "Are you sure you want to save?", message: "Saving will wipe all your previous data.", preferredStyle: .alert)

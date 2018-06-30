@@ -46,7 +46,7 @@ class ScoresTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "scoreCell", for: indexPath) as! ScoreTableViewCell
         if let label = cell.textLabel {
             let currentScore = scores[indexPath.row]
-            label.text = String(currentScore)
+            label.text = "\(currentScore) seconds"
         }
         
         if let timeLabel = cell.timeStampLabel {
