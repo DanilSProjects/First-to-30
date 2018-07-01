@@ -126,5 +126,10 @@ class SettingsTableViewController: UITableViewController {
     }
     
     
+    @IBAction func backPressed(_ sender: Any) {
+        noofTapsRequired = retrievedTaps
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+    }
     
 }

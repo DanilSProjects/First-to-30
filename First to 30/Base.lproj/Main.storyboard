@@ -153,6 +153,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="Ln5-tF-qmi">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="HGC-hS-Z2s">
+                            <connections>
+                                <action selector="backPressed:" destination="i0n-nJ-zeo" id="k7t-qx-WTS"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Vbt-ng-0PE">
                             <connections>
                                 <action selector="saveTapped:" destination="i0n-nJ-zeo" id="klO-CM-t2E"/>
