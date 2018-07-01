@@ -10,6 +10,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="game_over.ttf">
+            <string>Game-Over</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Scores-->
         <scene sceneID="HqF-rq-k6U">
@@ -184,60 +189,59 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BmU-hZ-b74">
-                                <rect key="frame" x="16" y="152" width="343" height="165"/>
+                                <rect key="frame" x="16" y="157" width="359" height="140"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="165" id="sQt-ud-xSD"/>
+                                    <constraint firstAttribute="height" constant="140" id="A5A-y7-eZb"/>
                                 </constraints>
-                                <string key="text">When you first boot up the app, you are greeted with an empty list of scores. This is where your scores will be shown. Scores are based on the amount of time you took to get to the required amount of taps.  Time stamps of the exact time you achieved the score will also be shown. For now, tap on 'play' in the top right corner.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPA-o2-VHP">
-                                <rect key="frame" x="16" y="320" width="343" height="165"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="165" id="RPA-xp-cvD"/>
-                                </constraints>
-                                <string key="text">When you tap on 'play, you will be greeted with a new screen telling you the number of taps needed to proceed. Now, tap on the screen as fast as possible! When you reach the required amount, the app will automatically stop you and take you back to the scores screen to show you the amount of time you took.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <string key="text">When you first boot up the app, you are greeted with an empty list of scores. This is where your scores will be shown. Scores are based on the amount of time you took to get to the required amount of taps.  Time stamps of the exact time you achieved the score will also be shown.  For now, tap on 'play' in the top right corner.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations! You are now ready to play First to 30! Good luck and happy playing!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AcS-xm-K17">
-                                <rect key="frame" x="16" y="600" width="359" height="46"/>
+                                <rect key="frame" x="16" y="605" width="359" height="41"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4b-Xn-3D6">
-                                <rect key="frame" x="16" y="487" width="343" height="105"/>
+                                <rect key="frame" x="16" y="479" width="359" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="105" id="i8l-pw-4k7"/>
+                                    <constraint firstAttribute="height" constant="120" id="chx-4W-5tc"/>
                                 </constraints>
                                 <string key="text">Although the default number of taps required is 30, you are free to change the number in the settings. If you change the number, however, do be aware that all your scores will be erased.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPA-o2-VHP">
+                                <rect key="frame" x="16" y="297" width="359" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="KjI-Yc-DWv"/>
+                                </constraints>
+                                <string key="text">When you tap on 'play, you will be greeted with a new screen telling you the number of taps needed to proceed. Now, tap on the screen as fast as possible! When you reach the required amount, the app will automatically stop you and take you back to the scores screen to show you the amount of time you took. If you wish to delete the score, just swipe the score to the left and press the delete button that appears.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="G4b-Xn-3D6" firstAttribute="trailing" secondItem="kb0-z6-CMd" secondAttribute="trailing" id="00I-LC-DIr"/>
                             <constraint firstItem="kb0-z6-CMd" firstAttribute="trailing" secondItem="AcS-xm-K17" secondAttribute="trailing" id="1AC-zd-EzM"/>
                             <constraint firstItem="AcS-xm-K17" firstAttribute="leading" secondItem="kb0-z6-CMd" secondAttribute="leading" constant="16" id="2yk-bf-DMW"/>
+                            <constraint firstItem="G4b-Xn-3D6" firstAttribute="top" secondItem="IPA-o2-VHP" secondAttribute="bottom" constant="-18" id="8Md-DO-sBD"/>
+                            <constraint firstItem="G4b-Xn-3D6" firstAttribute="leading" secondItem="kb0-z6-CMd" secondAttribute="leading" constant="16" id="BdU-n2-JZq"/>
                             <constraint firstItem="kb0-z6-CMd" firstAttribute="trailing" secondItem="Cgp-Vh-gLR" secondAttribute="trailing" constant="49" id="CxB-MB-JNP"/>
-                            <constraint firstItem="kb0-z6-CMd" firstAttribute="trailing" secondItem="IPA-o2-VHP" secondAttribute="trailing" constant="16" id="Ect-1S-UIX"/>
-                            <constraint firstItem="G4b-Xn-3D6" firstAttribute="leading" secondItem="kb0-z6-CMd" secondAttribute="leading" constant="16" id="Nw5-cw-HNi"/>
+                            <constraint firstItem="BmU-hZ-b74" firstAttribute="leading" secondItem="kb0-z6-CMd" secondAttribute="leading" constant="16" id="FwP-bw-Csb"/>
                             <constraint firstItem="Cgp-Vh-gLR" firstAttribute="top" secondItem="kb0-z6-CMd" secondAttribute="top" id="VVC-Iv-08w"/>
-                            <constraint firstItem="G4b-Xn-3D6" firstAttribute="top" secondItem="IPA-o2-VHP" secondAttribute="bottom" constant="2" id="XpK-Nu-gF7"/>
-                            <constraint firstItem="BmU-hZ-b74" firstAttribute="top" secondItem="Cgp-Vh-gLR" secondAttribute="bottom" constant="3" id="Z8G-ak-L0g"/>
-                            <constraint firstItem="kb0-z6-CMd" firstAttribute="trailing" secondItem="BmU-hZ-b74" secondAttribute="trailing" constant="16" id="diQ-UT-H2V"/>
+                            <constraint firstItem="IPA-o2-VHP" firstAttribute="trailing" secondItem="kb0-z6-CMd" secondAttribute="trailing" id="blK-7l-6Hi"/>
+                            <constraint firstItem="BmU-hZ-b74" firstAttribute="top" secondItem="Cgp-Vh-gLR" secondAttribute="bottom" constant="8" id="dJn-3H-C3K"/>
                             <constraint firstItem="kb0-z6-CMd" firstAttribute="bottom" secondItem="AcS-xm-K17" secondAttribute="bottom" constant="21" id="gc4-Nz-Z7h"/>
+                            <constraint firstItem="IPA-o2-VHP" firstAttribute="top" secondItem="BmU-hZ-b74" secondAttribute="bottom" id="let-7G-P9q"/>
+                            <constraint firstItem="IPA-o2-VHP" firstAttribute="leading" secondItem="kb0-z6-CMd" secondAttribute="leading" constant="16" id="mIx-ff-43p"/>
                             <constraint firstItem="Cgp-Vh-gLR" firstAttribute="leading" secondItem="kb0-z6-CMd" secondAttribute="leading" constant="16" id="mki-hi-Sjg"/>
-                            <constraint firstItem="kb0-z6-CMd" firstAttribute="trailing" secondItem="G4b-Xn-3D6" secondAttribute="trailing" constant="16" id="pom-NZ-GlK"/>
-                            <constraint firstItem="IPA-o2-VHP" firstAttribute="top" secondItem="BmU-hZ-b74" secondAttribute="bottom" constant="3" id="rmh-Ks-GeY"/>
-                            <constraint firstItem="BmU-hZ-b74" firstAttribute="leading" secondItem="kb0-z6-CMd" secondAttribute="leading" constant="16" id="rz3-Kr-97c"/>
-                            <constraint firstItem="AcS-xm-K17" firstAttribute="top" secondItem="G4b-Xn-3D6" secondAttribute="bottom" constant="8" id="t7z-0q-BvN"/>
-                            <constraint firstItem="IPA-o2-VHP" firstAttribute="leading" secondItem="kb0-z6-CMd" secondAttribute="leading" constant="16" id="zkS-IE-4ES"/>
+                            <constraint firstItem="BmU-hZ-b74" firstAttribute="trailing" secondItem="kb0-z6-CMd" secondAttribute="trailing" id="o1W-b6-ers"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kb0-z6-CMd"/>
                     </view>
@@ -255,16 +259,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkr-8H-F32">
-                                <rect key="frame" x="150" y="303" width="75" height="81"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkr-8H-F32">
+                                <rect key="frame" x="140" y="303" width="95" height="81"/>
+                                <fontDescription key="fontDescription" name="Game-Over" family="Game Over" pointSize="100"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of taps needed: 40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWW-c3-oNq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of taps needed: 30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="29" translatesAutoresizingMaskIntoConstraints="NO" id="FWW-c3-oNq">
                                 <rect key="frame" x="51" y="141" width="308" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <fontDescription key="fontDescription" name="Game-Over" family="Game Over" pointSize="58"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -274,8 +278,8 @@
                         <constraints>
                             <constraint firstItem="dkr-8H-F32" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="283" id="0ib-3o-8BY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dkr-8H-F32" secondAttribute="bottom" constant="283" id="KnI-Ti-mYs"/>
-                            <constraint firstItem="dkr-8H-F32" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="150" id="LQD-ej-rH4"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dkr-8H-F32" secondAttribute="trailing" constant="150" id="qmZ-IZ-PIc"/>
+                            <constraint firstItem="dkr-8H-F32" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="140" id="LQD-ej-rH4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dkr-8H-F32" secondAttribute="trailing" constant="140" id="qmZ-IZ-PIc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>
