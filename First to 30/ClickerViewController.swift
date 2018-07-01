@@ -21,7 +21,7 @@ class ClickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(update), userInfo: nil, repeats: true)
-        counterLabel.text = counter
+        counterLabel.text = String(counter)
         hintLabel.text = "Number of taps needed: \(numOfTapsRequired)"
         // Do any additional setup after loading the view, typically from a nib.
     }
