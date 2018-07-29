@@ -20,15 +20,15 @@ class ClickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(update), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: {(_) in
+            self.time += 0.1
+        })
         counterLabel.text = String(counter)
         hintLabel.text = "Number of taps needed: \(numOfTapsRequired)"
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    @objc func update() {
-        time += 0.1
-    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

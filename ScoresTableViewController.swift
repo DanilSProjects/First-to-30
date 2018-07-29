@@ -8,6 +8,8 @@
 
 import UIKit
 
+private let SAVED_SCORES_KEY = "savedScores"
+private let SAVED_TIMES_KEY = "savedTimes"
 class ScoresTableViewController: UITableViewController {
     
     var scores: [Float] = []
@@ -16,7 +18,10 @@ class ScoresTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let loadedScores = UserDefaults.standard.array(forKey: SAVED_SCORES_KEY)
+        let loadedTimes = UserDefaults.standard.array(forKey: SAVED_TIMES_KEY)
+        scores = loadedScores as? [Float] ?? [Float]()
+        timeStamps = loadedTimes as? [String] ?? [String]()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 /*
@@ -26,6 +31,8 @@ class ScoresTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        UserDefaults.standard.set(scores, forKey: SAVED_SCORES_KEY)
+        UserDefaults.standard.set(timeStamps, forKey: SAVED_TIMES_KEY)
         // Dispose of any resources that can be recreated.
     }
 
@@ -71,6 +78,8 @@ class ScoresTableViewController: UITableViewController {
         if editingStyle == .delete {
             timeStamps.remove(at: indexPath.row)
             scores.remove(at: indexPath.row)
+            UserDefaults.standard.set(scores, forKey: SAVED_SCORES_KEY)
+            UserDefaults.standard.set(timeStamps, forKey: SAVED_TIMES_KEY)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadData()
         } else if editingStyle == .insert {
@@ -110,12 +119,16 @@ class ScoresTableViewController: UITableViewController {
             let source = segue.source as! ClickerViewController
             scores.insert((Float(source.time)), at: 0)
             timeStamps.insert(source.timeCompleted, at: 0)
+            UserDefaults.standard.set(scores, forKey: SAVED_SCORES_KEY)
+            UserDefaults.standard.set(timeStamps, forKey: SAVED_TIMES_KEY)
             tableView.reloadData()
         }
         
         if segue.identifier == "saveUnwind" {
             scores.removeAll()
             timeStamps.removeAll()
+            UserDefaults.standard.set(scores, forKey: SAVED_SCORES_KEY)
+            UserDefaults.standard.set(timeStamps, forKey: SAVED_TIMES_KEY)
             tableView.reloadData()
         }
         
