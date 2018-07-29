@@ -266,7 +266,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkr-8H-F32">
                                 <rect key="frame" x="140" y="303" width="95" height="81"/>
-                                <fontDescription key="fontDescription" name="Game-Over" family="Game Over" pointSize="100"/>
+                                <fontDescription key="fontDescription" name="Game-Over" family="Game Over" pointSize="150"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -277,8 +277,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="READY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOU-ZH-25j">
+                                <rect key="frame" x="0.0" y="265" width="375" height="161"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Game-Over" family="Game Over" pointSize="150"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6g-ra-mzX">
+                                <rect key="frame" x="93" y="292" width="215" height="135"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.5096537812081503" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Game-Over" family="Game Over" pointSize="100"/>
+                                <state key="normal" title="START">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IP4-Sz-CSg"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.84285038918466171" blue="0.48721511675385709" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.9882352941176471" green="0.050980392156862744" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="dkr-8H-F32" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="283" id="0ib-3o-8BY"/>
@@ -293,7 +312,9 @@
                     </view>
                     <connections>
                         <outlet property="counterLabel" destination="dkr-8H-F32" id="r1e-GZ-P7a"/>
+                        <outlet property="goLabel" destination="ZOU-ZH-25j" id="oQv-Gg-a4H"/>
                         <outlet property="hintLabel" destination="FWW-c3-oNq" id="ki5-m7-FR2"/>
+                        <outlet property="startButton" destination="w6g-ra-mzX" id="ph7-Hq-k2F"/>
                         <segue destination="6su-Hn-wxU" kind="unwind" identifier="exitClicker" unwindAction="unwindToScoreTableWithSegue:" id="tl4-HK-JH2"/>
                     </connections>
                 </viewController>
