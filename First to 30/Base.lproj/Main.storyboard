@@ -54,7 +54,7 @@
                     <navigationItem key="navigationItem" title="Scores" id="3te-mX-cpn">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="66g-kg-gwi">
                             <connections>
-                                <segue destination="i0n-nJ-zeo" kind="show" id="o2H-OU-xql"/>
+                                <segue destination="fCU-mc-Opd" kind="show" id="AY4-wt-7aR"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Play" id="8Dq-l3-obT">
@@ -365,7 +365,4 @@
             <point key="canvasLocation" x="-697" y="873"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="o2H-OU-xql"/>
-    </inferredMetricsTieBreakers>
 </document>
