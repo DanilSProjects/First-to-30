@@ -104,7 +104,7 @@ class ClickerViewController: UIViewController {
     @IBAction func screenTapped(_ sender: Any) {
         if isAnimationOver == true {
             counter += 1
-            label.text = "\(counter)"
+            counterLabel.text = "\(counter)"
         } else if isAnimationOver == false {
             print ("Sorry sir, restricted area.")
         }
