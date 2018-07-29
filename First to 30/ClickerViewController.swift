@@ -27,7 +27,7 @@ class ClickerViewController: UIViewController {
             self.time += 0.1
         })
         counterLabel.text = String(counter)
-
+        hintLabel.isHidden = true
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -71,6 +71,7 @@ class ClickerViewController: UIViewController {
                     self.isAnimationOver = true
                     self.hintLabel.isHidden = false
                     self.hintLabel.text = "Number of taps needed: \(self.numOfTapsRequired)"
+                    
                     self.timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (_) in
                         self.time += 0.1
                     }
@@ -110,6 +111,7 @@ class ClickerViewController: UIViewController {
         }
         
         if counter == numOfTapsRequired {
+            hintLabel.isHidden = true
             UIView.animate(withDuration: 0.5, animations: {
                 self.timer?.invalidate()
                 self.view.backgroundColor = .cyan
